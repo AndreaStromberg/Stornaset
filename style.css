@@ -1,0 +1,235 @@
+/* RESET */
+
+* {
+  box-sizing: border-box;
+
+  /* motverkar luddighet på texten i olika webbläsare */
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background-color: var(--color-soft-white);
+  margin: 0;
+  padding: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* CUSTOM PROPERTIES */
+:root {
+  --font-headings: "Playfair Display", serif;
+  --font-paragraphs: "Roboto", sans-serif;
+
+  --color-text-dark: #222;
+  --color-text-light: #fafafa;
+
+  --color-light: #f7f7e8;
+  --color-light-greenblue: #c7cfb7;
+  --color-medium-green: #9dad7f;
+  --color-medium-softblue: #557174;
+  --color-dark-softblue: #3c4849;
+}
+
+/* TYPOGRAFI */
+
+h1 {
+  font-family: var(--font-headings);
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-family: var(--font-headings);
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-family: var(--font-headings);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+p {
+  font-family: var(--font-paragraphs);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+a {
+  font-family: var(--font-paragraphs);
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  text-decoration: none;
+  font-weight: 400;
+
+  &.menu-link-current {
+    font-weight: 800;
+  }
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  color: var(--color-text-dark);
+}
+
+button {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 150%;
+
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+
+  font-family: var(--font-paragraphs);
+
+  background-color: var(--color-light-greenblue);
+  color: var(--color-text-dark);
+
+  border: 0;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 48px;
+
+  background-color: var(--color-light-greenblue);
+  color: var(--color-text-dark);
+
+  .logo {
+    font-family: var(--font-headings);
+    font-size: 3rem;
+  }
+
+  .menu-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+  }
+
+  .button-darkmode {
+    border: none;
+    background: none;
+    color: var(--color-text-dark);
+  }
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 500px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* .hero-image {
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  } */
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/images/bild13.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* overlay på bakgrunden med bakgrundsbilden för att göra den lite mörkare för tillräcklig kontrast mot texten */
+.hero-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: var(--color-text-light);
+
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .hero-content-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .ingress {
+    font-family: var(--font-paragraphs);
+
+    color: var(--color-text-light);
+
+    font-size: 36px;
+    line-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .undertext {
+    font-family: var(--font-paragraphs);
+
+    color: var(--color-text-light);
+
+    font-size: 24px;
+    line-height: 100%;
+    margin-top: 24px;
+    padding: 0;
+  }
+
+  h1 {
+    color: var(--color-text-light);
+    font-size: 72px;
+    line-height: 72px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.hero-button {
+  z-index: 3;
+  margin-bottom: 48px;
+}
