@@ -326,3 +326,38 @@ main {
     }
   }
 }
+
+/* FOOTER */
+footer {
+  background-color: var(--color-light-greenblue);
+}
+
+.footer-inner {
+  color: var(--color-text-dark);
+  padding: 48px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .footer-logo a {
+    font-size: 36px;
+    font-family: var(--font-headings);
+  }
+
+  .adress {
+    display: flex;
+    flex-direction: column;
+
+    font-family: var(--font-paragraphs);
+    font-size: 20px;
+    line-height: 150%;
+  }
+
+  .links-list {
+    list-style: none;
+    li a {
+      line-height: 150%;
+    }
+  }
+}
