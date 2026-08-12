@@ -7,6 +7,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: grayscale;
 
+  /* Tar bort alla marginaler och paddingar så att det går att ställa in egna istället. */
   margin: 0;
   padding: 0;
 }
@@ -90,6 +91,13 @@ a {
   &.menu-link-current {
     font-weight: 800;
   }
+
+  /* Annan färg när man hovrar */
+  transition: color 250ms;
+
+  &:hover {
+    color: var(--color-medium-green);
+  }
 }
 
 h1,
@@ -116,7 +124,7 @@ button {
   border: 0;
 }
 
-/* Animation för att fada in logo */
+/* Animation för att "fada" in logo */
 @keyframes fadeIn {
   from {
     color: var(--color-light-greenblue);
@@ -142,6 +150,13 @@ header {
     font-size: 3rem;
     animation-name: fadeIn;
     animation-duration: 3s;
+
+    /* Annan färg när man hovrar */
+    transition: color 250ms;
+
+    &:hover {
+      color: var(--color-medium-green);
+    }
   }
 
   .menu-links {
@@ -150,10 +165,50 @@ header {
     list-style: none;
   }
 
+  .header-buttons {
+    display: flex;
+  }
+
   .button-darkmode {
     border: none;
     background: none;
     color: var(--color-text-dark);
+
+    /* Annan färg när man hovrar */
+    transition: color 250ms;
+
+    &:hover {
+      color: var(--color-medium-green);
+    }
+  }
+
+  .hamburger-menu-button {
+    display: none;
+
+    /* Liten minusmarginal för att justera knappen i höjdled så att den hamnar i linje med mörkerläge-knappen */
+    margin-top: -8px;
+  }
+
+  /* SKÄRMSTORLEKSANPASSNINGAR FÖR HEADER */
+  @media screen and (max-width: 1000px) {
+    padding: 24px;
+  }
+
+  @media screen and (max-width: 800px) {
+    /* Menylänkarna ersätts av en hamburgermenyknapp */
+    .hamburger-menu-button {
+      display: block;
+    }
+
+    .menu-links {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    .logo {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -162,6 +217,7 @@ main {
 }
 
 .hero {
+  /* Sätter position:relative för att kunna göra en bakgrund och overlay som ligger ovanpå */
   position: relative;
   width: 100%;
   height: 500px;
@@ -169,26 +225,22 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  /* .hero-image {
-
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-  } */
 }
 
 .hero-background {
+  /* Lägger bakgrunden ovanpå hela hero */
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+
+  /* använder bild som bakgrund */
   background-image: url("assets/images/bild13.jpg");
   background-size: cover;
   background-position: center;
+
+  /* z-index för att styra att bilden hamnar underst, bakom overlay och text */
   z-index: 0;
 }
 
@@ -200,12 +252,19 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
+
+  /* Mörk färg med en opacitet, för att mörka ner bilden men att den ändå syns */
   background-color: rgba(0, 0, 0, 0.6);
+
+  /* z-index 1 gör att overlay hamnar ovanpå bilden som har z-index 0 */
   z-index: 1;
 }
 
 .hero-content {
+  padding: 48px;
   position: relative;
+
+  /* z-index 2 gör att texten hamnar ovanpå bakgrundsbild och overlay */
   z-index: 2;
   color: var(--color-text-light);
 
@@ -230,23 +289,11 @@ main {
     font-family: var(--font-paragraphs);
 
     /* Använder inte färgvariabel här, för att jag vill att det ska vara ljus text även i mörkerläget */
-
     color: #fafafa;
 
     font-size: 36px;
     line-height: 100%;
     margin: 0;
-    padding: 0;
-  }
-
-  .undertext {
-    font-family: var(--font-paragraphs);
-
-    color: var(--color-text-light);
-
-    font-size: 24px;
-    line-height: 100%;
-    margin-top: 24px;
     padding: 0;
   }
 
@@ -262,14 +309,57 @@ main {
 
 .hero-button {
   z-index: 3;
-  margin-bottom: 48px;
+  /* margin-bottom: 48px; */
 
-  /* Större text när man hovrar */
+  /* Annan bakgrundsfärg när man hovrar */
   transition: background-color 250ms;
 
   &:hover {
-    /* transform: scale(0.995); */
     background-color: var(--color-medium-green);
+  }
+}
+
+/* SKÄRMSTORLEKSINSTÄLLNINGAR FÖR HERO */
+.hero {
+  @media screen and (max-width: 940px) {
+    h1 {
+      font-size: 64px;
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    h1 {
+      font-size: 48px;
+    }
+
+    .ingress {
+      font-size: 28px;
+    }
+  }
+  @media screen and (max-width: 670px) {
+    h1 {
+      font-size: 36px;
+    }
+
+    .ingress {
+      font-size: 24px;
+    }
+
+    .hero-button {
+      font-size: 20px;
+      padding: 4px 8px;
+    }
+  }
+  @media screen and (max-width: 525px) {
+    h1 {
+      font-size: 24px;
+    }
+
+    .ingress {
+      font-size: 20px;
+    }
+
+    height: 350px;
   }
 }
 
@@ -287,6 +377,13 @@ main {
     background-color: var(--color-light);
     margin-left: auto;
     margin-right: auto;
+
+    /* Annan bakgrundsfärg när man hovrar */
+    transition: background-color 250ms;
+
+    &:hover {
+      background-color: var(--color-medium-green);
+    }
   }
 }
 
@@ -324,13 +421,6 @@ main {
     align-items: center;
     background-color: var(--color-light);
     padding: 24px;
-
-    /* padding försvinner och bilden blir större när man hovrar */
-    /* transition: background-color 0.5s;
-
-    &:hover {
-      background-color: #e7e7d8;
-    } */
   }
 
   .gallery-image img {
@@ -355,9 +445,7 @@ main {
   gap: 48px;
 
   .text-image {
-    height: 400px;
-    animation-name: noPadding;
-    animation-duration: 4s;
+    height: auto;
   }
 
   .text {
@@ -365,15 +453,6 @@ main {
       font-size: 20px;
       line-height: 150%;
     }
-  }
-}
-
-@keyframes myAnimation {
-  from {
-    padding: 24px;
-  }
-  to {
-    padding: 0;
   }
 }
 
@@ -411,20 +490,3 @@ footer {
     }
   }
 }
-/* 
-.infotext > figure.text-image {
-  animation-duration: 1.5s;
-  animation-name: slide-in;
-}
-
-@keyframes slide-in {
-  from {
-    translate: 25vw 0;
-    scale: 200% 1;
-  }
-
-  to {
-    translate: 0 0;
-    scale: 100% 1;
-  }
-} */
