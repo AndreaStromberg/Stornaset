@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stornäsets naturreservat</title>
 
+    <!-- Läser in typsnitt från google fonts -->
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,9 +14,11 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
+    <!-- Läser in CSS-filen -->
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Läser in javascriptfilen -->
     <!-- JS -->
     <script src="main.js" defer></script>
 </head>
@@ -48,7 +51,7 @@
 
             </button>
 
-            <!-- hamburgermenyknapp -->
+            <!-- hamburgermenyknapp som kommer att synas på mindre skärmstorlekar när hela listan med länkar inte får plats -->
             <button class="hamburger-menu-button">
                 <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 12V10H18V12H0ZM0 7V5H18V7H0ZM0 2V0H18V2H0Z" fill="currentColor" />
@@ -69,7 +72,6 @@
                 <div class="hero-content-text">
                     <span class="ingress">Välkommen till</span>
                     <h1>Stornäsets naturreservat</h1>
-                    <!-- <span class="undertext">Där älven möter hav och skog</span> -->
 
                 </div>
 
@@ -84,7 +86,10 @@
 
         </section>
 
+        <!-- BILDGALLERI -->
         <section class="gallery-section">
+
+            <!-- Gör en konstruktion med flexcontainer med rader i som i sig är grid-containrar, för att kunna disponera utrymmet mellan bilderna -->
             <div class="gallery">
                 <div class="firstrow">
                     <figure class="gallery-image"><img src="assets/images/bild3.jpg" alt="spång genom tät skog">
@@ -124,6 +129,8 @@
 
         </section>
 
+
+        <!-- TEXTSEKTION -->
         <section class="infotext-section">
             <h2>Nu är korna på bete</h2>
             <div class="infotext">

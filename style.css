@@ -42,7 +42,7 @@ img {
   --color-dark-softblue: #3c4849;
 }
 
-/* MÖRKT LÄGE */
+/* MÖRKT LÄGE, sätter nya värden på custom properties för färg */
 .body-darkmode {
   --color-text-dark: #fafafa;
   --color-text-light: #222;
@@ -108,6 +108,7 @@ a {
   color: var(--color-text-dark);
 }
 
+/* Generella inställningar för alla knappar */
 button {
   font-size: 24px;
   font-weight: 400;
@@ -187,6 +188,13 @@ header {
 
     /* Liten minusmarginal för att justera knappen i höjdled så att den hamnar i linje med mörkerläge-knappen */
     margin-top: -8px;
+
+    /* Annan färg när man hovrar */
+    transition: color 250ms;
+
+    &:hover {
+      color: var(--color-medium-green);
+    }
   }
 
   /* SKÄRMSTORLEKSANPASSNINGAR FÖR HEADER */
@@ -309,7 +317,6 @@ main {
 
 .hero-button {
   z-index: 3;
-  /* margin-bottom: 48px; */
 
   /* Annan bakgrundsfärg när man hovrar */
   transition: background-color 250ms;
@@ -386,7 +393,7 @@ main {
     }
   }
 }
-
+/* Gör en konstruktion med flexcontainer med rader i som i sig är grid-containrar, för att kunna disponera utrymmet mellan bilderna  */
 .gallery {
   background-color: var(--color-light-greenblue);
   padding: 48px;
@@ -394,7 +401,7 @@ main {
   flex-direction: column;
   gap: 48px;
 
-  /* säkerställer att varje rad får lika mycket plats */
+  /* säkerställer att varje rad får lika mycket plats på höjden */
   grid-auto-rows: 1fr;
 
   .firstrow {
