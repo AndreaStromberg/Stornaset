@@ -393,6 +393,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 48px;
+
+  /* säkerställer att varje rad får lika mycket plats */
   grid-auto-rows: 1fr;
 
   .firstrow {
@@ -431,6 +433,41 @@ main {
   }
 }
 
+/* SKÄRMSTORLEKSANPASSNINGAR FÖR GALLERISEKTION */
+.gallery-section {
+  @media screen and (max-width: 900px) {
+    .gallery {
+      padding: 24px;
+      gap: 24px;
+
+      .firstrow,
+      .secondrow,
+      .thirdrow {
+        gap: 24px;
+      }
+
+      .gallery-image {
+        padding: 12px;
+      }
+    }
+  }
+  @media screen and (max-width: 650px) {
+    .gallery {
+      padding: 12px;
+      gap: 12px;
+
+      /* Vid denna skärmstorlek får alla bilderna hamna under varandra */
+      .firstrow,
+      .secondrow,
+      .thirdrow {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  }
+}
+
 /* TEXTSEKTION */
 .infotext-section {
   background-color: var(--color-light);
@@ -453,6 +490,16 @@ main {
       font-size: 20px;
       line-height: 150%;
     }
+  }
+}
+
+/* SKÄRMSTORLEKSANPASSNINGAR FÖR TEXTSEKTION */
+
+@media screen and (max-width: 650px) {
+  /* Bilden och texten får vara nedanför varandra */
+  .infotext {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -487,6 +534,23 @@ footer {
     list-style: none;
     li a {
       line-height: 150%;
+    }
+  }
+}
+
+/* SKÄRMSTORLEKSINSTÄLLNINGAR FÖR FOOTER */
+
+@media screen and (max-width: 760px) {
+  /* De olika sektionerna i footern hamnar nu under varandra */
+  .footer-inner {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    /* De två senare sektionerna får en liten marginal i toppen så det blir ett mellanrum */
+    .adress,
+    .links-list {
+      margin-top: 24px;
     }
   }
 }
